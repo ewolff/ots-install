@@ -2,6 +2,9 @@
 
 ## XUbuntu install
 
+* Make the file `preseed.cfg` available to the system being
+  installed. This might be done using a web server, DVD or USB stick.
+
 * Install XUbuntu from DVD or USB Stick, see http://xubuntu.org/getxubuntu/
 
 * Press any key to open the language dialog
@@ -15,9 +18,10 @@
 * Press ESC to close the selection of advanced option
 
 * Edit the boot parameters to read
-  `url=https://raw.githubusercontent.com/ewolff/ots-install/master/preseed.cfg boot=casper only-ubiquity
+  `url=http://192.168.1.17:8080/preseed.cfg boot=casper only-ubiquity
   noninteractive initrd=/casper/initrd.lz quiet ---` This reads the
-  preseed file that will run the installation
+  preseed file that will run the installation from the web server on
+  IP 192.68.1.17 running on port 8080.
 
   * The preseed file is documented at
   https://help.ubuntu.com/lts/installation-guide/i386/apbs01.html
@@ -28,10 +32,10 @@
     happend and modify values
     for the next installation.
 
-* `file=/cdrom/preseed.cfg boot=casper only-ubiquity noninteractive
+  * `file=/cdrom/preseed.cfg boot=casper only-ubiquity noninteractive
 initrd=/casper/initrd.lz quiet ---`  would read the file from DVD.
 
-* `file=/hd-media/preseed.cfg boot=casper only-ubiquity noninteractive
+  * `file=/hd-media/preseed.cfg boot=casper only-ubiquity noninteractive
 initrd=/casper/initrd.lz quiet ---`  would read the file from USB key.
 
 * Log into the machine as `otsadmin` and execute `wget
